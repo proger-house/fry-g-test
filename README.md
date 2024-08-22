@@ -1,1 +1,0 @@
-# fry-g-test
