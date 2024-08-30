@@ -54727,7 +54727,7 @@ this.a.fn("sendData",A.a([A.a5S(A.aI(["data","Hello from Flutter!"],s,s))],t.Eu)
 $S:37}
 A.Yq.prototype={
 $0(){var s=t.N
-J.aP($.JV().j(0,"Telegram"),"WebApp").fn("sendData",A.a([A.a5S(A.aI(["data","Hello from Flutter Button!"],s,s))],t.Eu))},
+J.aP($.JV().j(0,"Telegram"),"WebApp").fn("sendData",A.a([A.a5S(A.aI(["data","Hello from Flutter!"],s,s))],t.Eu))},
 $S:0}
 A.Yr.prototype={
 $0(){var s=t.N,r=A.aI(["query_id","unique_query_id","action","action_button_clicked"],s,s)
