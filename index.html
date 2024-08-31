@@ -39,7 +39,7 @@
         const sendDataBtn = document.getElementById('sendDataBtn');
         sendDataBtn.addEventListener('click', function () {
              const data = fetch(
-                    "https://n8n-ext.onrender.com/webhook-test/e8e445ca-d9a2-425c-bf4e-b4ece8846cb6",
+                    "https://n8n-ext.onrender.com/webhook-test/e8e445ca-d9a2-425c-bf4e-b4ece8846cb6?"+Telegram.WebApp.initData,
                     { method: "POST", body: Telegram.WebApp.initData },
                 ).then(res => res.json());
         });
