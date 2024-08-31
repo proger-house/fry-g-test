@@ -37,12 +37,10 @@
         // Настройка кнопки и обработчика события
         const sendDataBtn = document.getElementById('sendDataBtn');
         sendDataBtn.addEventListener('click', function () {
-            window.addEventListener("ready", async function () {
-                const data = await fetch(
+             const data = fetch(
                     "/validate-init",
                     { method: "POST", body: app.initData },
                 ).then(res => res.json());
-            });
         });
     </script>
 </body>
