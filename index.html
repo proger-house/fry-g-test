@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
             margin: 0;
             background-color: #f7f7f7;
         }
+
         button {
             padding: 10px 20px;
             font-size: 16px;
@@ -22,6 +24,7 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Telegram Mini App</h1>
     <button id="sendDataBtn">Send Data</button>
@@ -33,12 +36,15 @@
 
         // Настройка кнопки и обработчика события
         const sendDataBtn = document.getElementById('sendDataBtn');
-        sendDataBtn.addEventListener('click', function() {
-            const data = JSON.stringify({ message: "Hello from Mini App!" });
-
-            // Отправка данных в бот
-            Telegram.WebApp.sendData(data);
+        sendDataBtn.addEventListener('click', function () {
+            window.addEventListener("ready", async function () {
+                const data = await fetch(
+                    "/validate-init",
+                    { method: "POST", body: app.initData },
+                ).then(res => res.json());
+            });
         });
     </script>
 </body>
+
 </html>
