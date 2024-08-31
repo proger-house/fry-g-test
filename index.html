@@ -1,57 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+        body {
+          height: 1000vh !important;
+          position: static !important;
+          overscroll-behavior: none;
+        }
+
+        flutter-view {
+          position: fixed !important;
+          max-width: 100vw !important;
+          max-height: 100vh !important;
+        }
+
+        /* Safari-specific CSS */
+        @supports (-webkit-touch-callout: inherit) {
+          body {
+            height: 1000vh !important;
+          }
+        }
+    </style>
     <base href="/">
 
     <meta charset="UTF-8">
     <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-    <meta name="description" content="A new Flutter project.">
+    <meta name="TelegramWebApp" content="Telegram Web App Example">
 
     <!-- iOS meta tags & icons -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="fry_g">
+    <meta name="apple-mobile-web-app-title" content="TelegramWebAppExample">
     <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png"/>
 
-    <title>fry_g</title>
+    <title>TelegramWebAppExample</title>
     <link rel="manifest" href="manifest.json">
-
-    <!-- Telegram Web App JS -->
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-    <script>
-        // The value below is injected by flutter build, do not touch.
-        const serviceWorkerVersion = "2006830498";
-    </script>
-    <!-- This script adds the flutter initialization JS code -->
-    <script src="flutter.js" defer></script>
 </head>
 <body>
-<script>
-<!--    window.addEventListener('load', function(ev) {-->
-<!--      // Initialize Telegram WebApp-->
-<!--      const tg = window.Telegram.WebApp;-->
-<!--      tg.ready();-->
-
-<!--      // Customize the application based on the Telegram Web App API-->
-<!--      tg.MainButton.text = "Press me!";-->
-<!--      tg.MainButton.show();-->
-
-<!--      // Download main.dart.js-->
-<!--      _flutter.loader.loadEntrypoint({-->
-<!--        serviceWorker: {-->
-<!--          serviceWorkerVersion: serviceWorkerVersion,-->
-<!--        },-->
-<!--        onEntrypointLoaded: function(engineInitializer) {-->
-<!--          engineInitializer.initializeEngine().then(function(appRunner) {-->
-<!--            appRunner.runApp();-->
-<!--          });-->
-<!--        }-->
-<!--      });-->
-<!--    });-->
-</script>
+<script src="flutter_bootstrap.js" async></script>
+<script src="https://telegram.org/js/telegram-web-app.js" defer=""></script>
+<script>window.scroll(0, window.document.body.scrollHeight);</script>
 </body>
 </html>
