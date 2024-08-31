@@ -39,7 +39,7 @@
         sendDataBtn.addEventListener('click', function () {
              const data = fetch(
                     "/validate-init",
-                    { method: "POST", body: app.initData },
+                    { method: "POST", body: JSON.stringify({ data: "Hello from Telegram Mini App" }) },
                 ).then(res => res.json());
         });
     </script>
