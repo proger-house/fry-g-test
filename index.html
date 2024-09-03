@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,30 +15,52 @@
             margin: 0;
             background-color: #f7f7f7;
         }
+
         button {
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+            word-wrap: break-word;
+            max-width: 300px;
+            text-align: center;
         }
     </style>
 </head>
+
 <body>
     <h1>Telegram Mini App</h1>
     <button id="sendDataBtn">Send Data</button>
-
+    <div id="result"></div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         // Инициализация Telegram Web App
         Telegram.WebApp.ready();
-
+        
         // Настройка кнопки и обработчика события
         const sendDataBtn = document.getElementById('sendDataBtn');
-        sendDataBtn.addEventListener('click', function() {
-            const data = JSON.stringify({ message: "Hello from Mini App!" });
-
-            // Отправка данных в бот
-            Telegram.WebApp.sendData(data);
+        const resultDiv = document.getElementById('result');
+        
+        sendDataBtn.addEventListener('click', function () {
+            fetch("https://n8n-ext.onrender.com/webhook/e8e445ca-d9a2-425c-bf4e-b4ece8846cb6?" + Telegram.WebApp.initData, {
+                method: "POST",
+                body: Telegram.WebApp.initData,
+            })
+            .then(res => res.json())
+            .then(data => {
+                resultDiv.textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(err => {
+                resultDiv.textContent = "An error occurred: " + err.message;
+            });
         });
     </script>
 </body>
+
 </html>
